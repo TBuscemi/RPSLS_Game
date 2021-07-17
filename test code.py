@@ -34,15 +34,15 @@
 
 p1 = 0
 p2 = 0
-user_1 = ""
-user_2= ""
+user_1 = "rock"
+user_2 = "paper"
 
-
-def who_win():
+# ["ROCK","PAPER","SCISSORS","LIZARD","SPOCK"]
+def who_wins():
     if(user_1 == user_2):
         print("no one wins")
     if(user_1 == "rock"):
-        elif(user_2 == "scissors"):
+        if(user_2 == "scissors"):
             print("rock smashes scissors you win #1!")
             return p1 + 1    
         elif(user_2 == "paper"):
@@ -54,4 +54,64 @@ def who_win():
         elif(user_2 == "lizard"):
             print("rock crushes lizard you win #1!")
             return p1 + 1 
-    elif(user_1 == "papper"):
+    if(user_1 == "paper"):
+        if(user_2 == "rock"):
+            print("paper covers rock you win #1!")
+            return p1 + 1
+        elif(user_2 == "scissors"):
+            print("scissors cuts papper you win #2!")    
+            return p2 + 1
+        elif(user_2 == "lizard"):
+            print("lizard eats paper you win #2!")
+            return p2 + 1
+        elif(user_2 == "spock"):
+            print("paper disproves spock you win #1!")
+            return p1 + 1   
+    if(user_1 == "scissors"):
+        if(user_2 == "rock"):
+            print("rock crushes scissors you win #2!")
+            return p2 + 1
+        elif(user_2 == "papper"):
+            print("scissors cut paper you win #1!")
+            return p1 + 1
+        elif(user_2 == "lizard"):
+            print("scissors decapitates lizard you win #1!")
+            return p1 + 1
+        elif(user_2 == "spock"):
+            print("spock smashes scissors you win #2!")
+            return p2 + 1
+    if(user_1 == "lizard"):
+        if(user_2 == "rock"):
+            print("rock smashes lizard you win #2!")
+            return p2 + 1
+        elif(user_2 == "paper"):
+            print("lizard eats papper you win #1!")
+            return p1 + 1
+        elif(user_2 == "scissors"):
+            print("scissors decapitates lizard you win#2!")
+            return p2 + 1
+        elif(user_2 == "spock"):
+            print("lizard poisons spock you win #1!")
+            return p1 + 1 
+    if(user_1 == "spock"):
+        if(user_2 == "rock"):
+            print("spock vaporizes rock you win #1!")
+            return p1 + 1
+        elif(user_2 == "paper"):
+            print("paper disproves spock you win #2")
+            return p2 + 1
+        elif(user_2 == "scissors"):
+            print("spock smashes scissors you win #1!")
+            return p1 + 1
+        elif(user_2 == "lizard"):
+            print("lizard poisons spock you win #2")
+            return p2 + 1
+
+            
+print(p1)
+print(p2)
+
+
+who_wins()
+print(p1)
+print(p2)
