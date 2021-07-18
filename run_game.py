@@ -14,7 +14,13 @@ class Play:
         pass
 
     # def display_welcome(self): #add this later, it's extra.
-    #     print("Shall we play a game?")
+    #     print("GREETINGS PROFESSOR FALKEN")
+    #     print()
+    #     print("A STRANGE GAME.")
+    #     print("THE ONLY WINNING MOVE IS")
+    #     print("NOT TO PLAY.")
+    #     print()
+    #     print("HOW ABOUT A NICE GAME OF ROCK PAPER SCISSORS LIZARD SPOCK?")
     #     pass
 
     def display_rules(self):
