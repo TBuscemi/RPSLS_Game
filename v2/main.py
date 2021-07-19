@@ -1,4 +1,4 @@
-#this will initiate the game
+# this rus the game
 from run_game import Run_game
 
 
