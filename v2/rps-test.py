@@ -1,3 +1,5 @@
+# THIS FILE CANE BE DELETED..I was following a tutorial
+
 # importing random module
 
 import random
@@ -6,7 +8,7 @@ import random
 """This program plays a game of Rock, Paper, Scissors between two Players,
 and reports both Player's scores each round."""
 
-moves = ['rock', 'paper', 'scissors']
+moves = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 """The Player class is the parent class for all of the Players
 in this game"""
