@@ -42,7 +42,7 @@ class Run_Game:
 
         if game_type == "1":
             self.player1 = Human()
-            self.player_ai = Computer()
+            self.player2 = Computer()
             self.game_start(game_type)
         else:
             self.player1 = Human()
@@ -68,7 +68,7 @@ class Run_Game:
             print("\n✲´*。.❄¨¯`*✲Player 1 Throws Out: "+player1_gesture)
 
             if game_type == "1":
-                player2_gesture = self.player_ai.choose_gesture()
+                player2_gesture = self.player2.choose_gesture()
                 print("✲´*。.❄¨¯`*✲Player 2 Throws Out: "+player2_gesture + "\n")
             elif game_type == "2":
                 player2_gesture = self.player2.choose_gesture()

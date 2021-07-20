@@ -4,6 +4,6 @@ class Player:
 
     def __init__(self, name, gesture_list):
         self.name = ""
-        self.gesture_list = ["rock", "paper", "scissors", "lizard", "spock"]
+        self.gesture_list = ["gesture"]
     def select_gesture(self):
         return "Gesture"
