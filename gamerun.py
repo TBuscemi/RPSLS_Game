@@ -1,5 +1,4 @@
-import random
-from player import Player
+from os import system, name
 from human import Human
 from computer import Computer
 
@@ -7,13 +6,12 @@ from computer import Computer
 class Run_Game:
 
     def __init__(self):
-        self.player = Human(Player)
-        self.player2 = Human(Player)  # fix this maybe
-        self.player2 = Computer()
-        self.best_of = 3
-        pass
+        self.player1 = Human()
+        self.player2 = Human()  # fix this maybe
+
 
     def start(self):
+        print()
         print("GREETINGS PROFESSOR FALKEN "
               "\nSHALL WE PLAY A GAME?* "
               "\n"
@@ -30,120 +28,149 @@ class Run_Game:
               "\nRock crushes Scissors"
               "\n"
               "\nEach gesture thrown beats two other gestures, and in turn can be beat by two. \n"
-              "\n"
+              "Best two out of three wins..good luck!\n"
               "\n* game is limited to Rock Paper Scissors Lizard Spock."
               "\nGlobal Thermonuclear War is currently out of order.")  # just for the laughs from old people
+        print()
         self.menu()
 
     def menu(self):
         game_type = input(
             "Enter 1 to play against the computer; Enter 2 to play against another human: ")
-        if game_type != "1" and game_type != "2":
+        if game_type != "1" and game_type != "2":  # checks game_type user input
             self.menu()
 
         if game_type == "1":
-            self.player1 = Human("Player 1")
-            self.player2 = Computer("Player 2")
-            self.game_start()
+            self.player1 = Human()
+            self.player_ai = Computer()
+            self.game_start(game_type)
         else:
-            self.player1 = Human("Player 1")
-            self.player2 = Human("Player 2")
-            self.game_start()
+            self.player1 = Human()
+            self.player2 = Human()
+            self.game_start(game_type)
 
-    def game_start(self, player, player2):    # if player picks rocks
+    def game_start(self, game_type):    # if player picks rocks
         player_score = 0
         player2_score = 0
-
+        game_type
         while player_score < 2 and player2_score < 2:
+            player1_gesture = ""
+            player2_gesture = ""
+            print()
+            print("P1 Score")
+            print(player_score)
+            print("P2 Score")
+            print(player2_score)
+            print()
 
-          
-            
-          
-            self.player2.human_move = ""
-            self.player.human_move = ""
-            self.player2.computer_move = ""       # if player picks rock
+            player1_gesture = self.player1.choose_gesture().lower()
+            print("\n✲´*。.❄¨¯`*✲Player 1 Throws Out: "+player1_gesture)
 
-            if self.player.human_move == self.player2.computer_move or self.player.human_move == self.player2.human_move:
-                print("One of us should play better")
-                
-            if self.player.human_move == "Rock":     
-                if self.player2.computer_move == "Paper" or self.player2.human_move == "Paper":
+            if game_type == "1":
+                player2_gesture = self.player_ai.choose_gesture()
+                print("✲´*。.❄¨¯`*✲Player 2 Throws Out: "+player2_gesture + "\n")
+            elif game_type == "2":
+                player2_gesture = self.player2.choose_gesture()
+                print("✲´*。.❄¨¯`*✲Player 2 Throws Out: "+player2_gesture + "\n")
+
+            if player1_gesture == player2_gesture:
+                print()
+                print("It's a draw. No points scored.")
+
+            if player1_gesture == "rock":
+                if player2_gesture == "paper":
                     print("Paper covers Rock")
                     player2_score += 1  # Paper beats rock
-                elif self.player2.computer_move == "Scissors" or self.player2.human_move == "Scissors":
+                elif player2_gesture == "scissors":
                     print("Rock crushes Scissors")
-                    player_score += 1 # Rock beats scissors
-                elif self.player2.computer_move == "Lizard" or self.player2.human_move == "Lizard":
+                    player_score += 1  # Rock beats scissors
+                elif player2_gesture == "lizard":
                     print("Rock crushes Lizard")
                     player_score += 1  # Rock beats lizard
-                elif self.player2.computer_move == "Spock" or self.player2.human_move == "Spock":
+                elif player2_gesture == "spock":
                     print("Spock vaporizes Rock")
-                    return False  # Spock beats roc
-                        
+                    player2_score += 1
+                    # Spock beats roc
+
                     # if player picks paper
-            if self.player.human_move == "papper":     
-                if self.player2.human_move == "Paper" or self.player2.computer_move == "Rock":
+            if player1_gesture == "paper":
+                if player2_gesture == "rock":
                     print("Paper covers Rock")
                     player_score += 1  # Paper beats rock
-                elif self.player2.human_move == "Paper" or self.player2.computer_move == "Scissors":
+                elif player2_gesture == "scissors":
                     print("Scissors cuts Paper")
                     player2_score += 1  # Scissors beats paper
-                elif self.player2.human_move == "Paper" or self.player2.computer_move == "Lizard":
+                elif player2_gesture == "lizard":
                     print("Lizard eats Paper")
                     player2_score += 1  # Lizard beats paper
-                elif self.player2.human_move == "Paper" or self.player2.computer_move == "Spock":
+                elif player2_gesture == "spock":
                     print("Paper disproves Spock")
                     player_score += 1  # Paper beats Spock
 
                 # if player picks Scissors
-            if self.player.human_move == "Scissors":  
-                if self.player2.human_move == "Scissors" or self.player2.computer_move == "Rock":
+            if player1_gesture == "scissors":
+                if player2_gesture == "rock":
                     print("Rock crushes Scissors")
                     player2_score += 1  # Rock beats scissors
-                elif self.player2.human_move == "Scissors" or self.player2.computer_move == "Paper":
+                elif player2_gesture == "paper":
                     print("Scissors cuts Paper")
                     player_score += 1  # Scissors beats paper
-                elif self.player2.human_move == "Scissors" or self.player2.computer_move == "Lizard":
+                elif player2_gesture == "lizard":
                     print("Scissors decapitates Lizard")
                     player_score += 1  # Scissors beats lizard
-                elif self.player2.human_move == "Scissors" or self.player2.computer_move == "Spock":
+                elif player2_gesture == "spock":
                     print("Spock smashes Scissors")
                     player2_score += 1  # Spock beats scissors
 
                 # if player picks lizard
-            if self.player2.human_move == "Lizard":
-                if self.player2.human_move == "Lizard" or self.player2.computer_move == "Rock":
+            if player1_gesture == "lizard":
+                if player2_gesture == "rock":
                     print("Rock crushes Lizard")
                     player2_score += 1  # Rock beats lizard
-                elif self.player2.human_move == "Lizard" or self.player2.computer_move == "Paper":
+                elif player2_gesture == "paper":
                     print("Lizard eats Paper")
                     player_score += 1  # Lizard beats paper
-                elif self.player2.human_move == "Lizard" or self.player2.computer_move == "Scissors":
+                elif player2_gesture == "scissors":
                     print("Scissors decapitates Lizard")
                     player2_score += 1  # Scissors beats lizard
-                elif self.player2.human_move == "Lizard" or self.player2.computer_move == "Spock":
+                elif player2_gesture == "spock":
                     print("Lizard poisons Spock")
                     player_score += 1  # Lizard beats Spock
 
                 # if player picks Spock
-            if self.player.human_move == "Spock":    
-                if self.player2.human_move == "Spock" or self.player2.computer_move == "Rock":
+            if player1_gesture == "spock":
+                if player2_gesture == "rock":
                     print("Spock vaporizes Rock")
                     player_score += 1  # Spock beats rock
-                elif self.player2.human_move == "Spock" or self.player2.computer_move == "Paper":
+                elif player2_gesture == "paper":
                     print("Paper disproves Spock")
                     player2_score += 1  # Paper beats Spock
-                elif self.player2.human_move == "Spock" or self.player2.computer_move == "Scissors":
+                elif player2_gesture == "scissors":
                     print("Spock smashes Scissors")
                     player_score += 1  # Spock beats scissors
-                elif self.player2.human_move == "Spock" or self.player2.computer_move == "Lizard":
+                elif player2_gesture == "spock":
                     print("Lizard poisons Spock")
                     player2_score += 1  # Lizard beats Spock
-            
+
             if player_score == 2:
-                print("Player 1 wins!")
-                break
-            
+                print()
+                print(".·: * :· Player 1 wins! .·: * :·")
+                print()
+                input("\nPress any button to continue. . .")
+                self.start()
+
             elif player2_score == 2:
-                print("Player 2 wins!")
-                break    
+                print()
+                print(".·: * :· Player 2 wins! .·: * :·")
+                print()
+                input("\nPress enter to continue. . .")
+                self.start()
+
+    def clear(self):
+        if name == "nt":
+            _ = system("cls")
+        else:
+            _ = system("clear")
+
+
+Run_Game().start()
