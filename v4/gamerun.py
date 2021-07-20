@@ -162,7 +162,7 @@ class Run_Game:
                 print()
                 print(".·: * :· Player 2 wins! .·: * :·")
                 print()
-                input("\nPress any button to continue. . .")
+                input("\nPress enter to continue. . .")
                 self.start()
 
     def clear(self):
