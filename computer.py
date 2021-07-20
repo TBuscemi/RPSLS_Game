@@ -6,7 +6,7 @@ class Computer(Player):
     def __init__(self):
         self.name = "ai"
         self.gesture = ""
-        self.gesture_list = [""]
+        self.gesture_list = ["rock", "paper", "scissors", "lizard", "spock"]
   
     def choose_gesture(self):
         

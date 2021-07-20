@@ -53,6 +53,7 @@ class Run_Game:
         player_score = 0
         player2_score = 0
         game_type
+        
         while player_score < 2 and player2_score < 2:
             player1_gesture = ""
             player2_gesture = ""
@@ -156,7 +157,7 @@ class Run_Game:
                 print()
                 print(".·: * :· Player 1 wins! .·: * :·")
                 print()
-                input("\nPress any button to continue. . .")
+                input("\nPress enter to continue. . .")
                 self.start()
 
             elif player2_score == 2:
