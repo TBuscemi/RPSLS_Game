@@ -28,6 +28,7 @@ class Run_Game:
               "\nRock crushes Scissors"
               "\n"
               "\nEach gesture thrown beats two other gestures, and in turn can be beat by two. \n"
+              "Best two out of three wins..good luck!\n"
               "\n* game is limited to Rock Paper Scissors Lizard Spock."
               "\nGlobal Thermonuclear War is currently out of order.")  # just for the laughs from old people
         print()
