@@ -128,7 +128,6 @@
 #     self.best_of = 3
 
 
-<<<<<<< HEAD
 from human import Human
 from computer import Computer
 from player import Player
@@ -174,6 +173,10 @@ class game_start:
             self.player.human_move = ""
             self.player2.computer_move = ""       # if player picks rock           
         
+
+
+
+
             if self.player.human_move == self.player2.computer_move or self.player.human_move == self.player2.human_move:
                 print("One of us should play better")
                 
@@ -261,36 +264,3 @@ class game_start:
 
 
 game_start().comparing_gestures()
-=======
-def single_or_two_player(self):
-    Player = Human()
-    player2 = Human()
-
-    # instantiating human and computer objects:
-
-
-def single_player_round(self):
-    player = Human()
-    player2 = Computer()
-
-    # is a tie?
-    if player.human_move == player2.computer_move:
-        print("One of us should play better")
-        return "Tie"
-    # if player picks rock
-
-    def comparing_gestures(player, player2):    # if player picks rocks
-        if player.human_move == "Rock":
-            if player2.computer_move == "Paper" or player2.human_move == "Paper":
-                print("Paper covers Rock")
-                return False  # Paper beats rock
-            elif player2.computer_move == "Scissors" or player2.human_move == "Scissors":
-                print("Rock crushes Scissors")
-                return True  # Rock beats scissors
-            elif player2.computer_move == "Lizard" or player2.human_move == "Lizard":
-                print("Rock crushes Lizard")
-                return True  # Rock beats lizard
-            elif player2.computer_move == "Spock" or player2.human_move == "Spock":
-                print("Spock vaporizes Rock")
-                return False  # Spock beats rock
->>>>>>> bda5a9d2a33bf1ca046fe000c2897d15bb313505
