@@ -3,16 +3,16 @@ from player import Player
 
 class Human(Player):
 
-    def __init__(self):
-        self.name = "name"
-        self.gesture = ""
-        self.gesture_list = ["rock", "paper", "scissors", "lizard", "spock"]
+    def __init__(self, name):
+        super().__init__(name)
+
     def choose_gesture(self):
-        print('\n'.join(self.gesture_list))
-        gesture = input(
-            "Please enter one of the available gestures: ").lower()
-        return gesture
-        # while gesture != "Rock" or gesture != "Scissors" or gesture != "Lizard" or gesture != "Spock":
-        #     gesture = input(
-        #         "Invalid entry. Please enter one of the available gestures: ")
-        #     self.chosen_gesture = gesture
+        print("\nPick a gesture: \n1. Rock\n2. Paper\n3. Scissors\n4. Lizard\n5. Spock\n")
+
+        gesture = int(input(
+            "Please enter 1-5 for the available gestures: "))
+        while gesture < 1 or gesture > 5:
+            gesture = int(input(
+                "Invalid entry. Please enter 1-5 for the available gestures: "))
+        self.gesture_choice = gesture
+        self.generate_beats(gesture)
